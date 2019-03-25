@@ -94,8 +94,7 @@ btn_2.place(x=60, y=300, width=50, height=50)
 btn_3 = tkinter.Button(calculator, text='3', font=('微软雅黑', 20), fg=('#4F4F4F'), bd=0.5, command=lambda: pressNum('3'))
 btn_3.place(x=115, y=300, width=50, height=50)
 
-btn_jia = tkinter.Button(calculator, text='+', font=('微软雅黑', 20), fg=('#94d6da'), bd=0.5,
-                         command=lambda: pressCompute('+'))
+btn_jia = tkinter.Button(calculator, text='+', font=('微软雅黑', 20), fg=('#94d6da'), bd=0.5,command=lambda: pressCompute('+'))
 btn_jia.place(x=170, y=300, width=50, height=50)
 
 btn_dy = tkinter.Button(calculator, text='=', font=('微软雅黑', 20),bg='#feaf17', fg=('#4F4F4F'), bd=0.5, command=lambda: pressAns())
@@ -120,9 +119,8 @@ def pressChange(str):
     i = 0
     while i < len_str:
 
-        if str[i] == '/':
-            temp = temp + '÷'
-        elif str[i] == '*' and i + 1 < len(str) and str[i + 1] == '*':
+
+        if str[i] == '*' and i + 1 < len(str) and str[i + 1] == '*':
             temp = temp + '^'
             i = i + 1
         else:
@@ -197,7 +195,7 @@ def pressCompute(sign):
     flag_point = True
 
     # 初始前缀 -
-    if ans_val == '' and sign == '-':
+    if ans_val == '' and ans_temp_num==''and sign == '-':
         ans_val = '-'
         display_ans.set(ans_val)
         return
